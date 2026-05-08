@@ -1,3 +1,11 @@
 spring:
   application:
     name: hoyoverse-notice
+
+# HoYoLAB 비공식 API와 통신하기 위한 정적 설정.
+# 사용자 비밀(쿠키, UID)은 여기에 두지 않는다 — 환경변수로만 주입.
+hoyolab:
+  base-url: https://sg-public-api.hoyolab.com
+  salt: 6s25p5ox5y14umn1p61aqyyvbvvl3lrt
+  app-version: 1.5.0
+  cookie: ${HOYO_COOKIE:}     # 환경변수에서 주입. 없으면 빈 문자열 → 시작 시 검증으로 막음.
