@@ -30,4 +30,6 @@ npm-debug.log*
 
 # ===== secrets =====
 .env
+.env.local
+.env.*.local
 *.secret
