@@ -13,7 +13,9 @@ import org.springframework.test.context.TestPropertySource;
  */
 @SpringBootTest
 @TestPropertySource(properties = {
-		"hoyolab.cookie=test-cookie"
+		"hoyolab.cookie=test-cookie",
+		"genshin.uid=812345678",
+		"genshin.server=os_asia"
 })
 class HoyoverseNoticeApplicationTests {
 

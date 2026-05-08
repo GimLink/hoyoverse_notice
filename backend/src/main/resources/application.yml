@@ -9,3 +9,7 @@ hoyolab:
   salt: 6s25p5ox5y14umn1p61aqyyvbvvl3lrt
   app-version: 1.5.0
   cookie: ${HOYO_COOKIE:}     # 환경변수에서 주입. 없으면 빈 문자열 → 시작 시 검증으로 막음.
+
+genshin:
+  uid: ${GENSHIN_UID:}
+  server: ${GENSHIN_SERVER:os_asia}
