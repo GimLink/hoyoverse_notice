@@ -2,9 +2,11 @@ package com.link.hoyoversenotice.genshin;
 
 import com.link.hoyoversenotice.GlobalExceptionHandler;
 import com.link.hoyoversenotice.hoyolab.HoyolabApiException;
+import com.link.hoyoversenotice.web.CorsProperties;
 import org.springframework.web.client.ResourceAccessException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
@@ -29,6 +31,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 @WebMvcTest(GenshinDailyNoteController.class)
 @Import(GlobalExceptionHandler.class)   // 슬라이스가 자동 포함하지만 명시적으로 — 의도 표현
+@EnableConfigurationProperties(CorsProperties.class)   // WebMvcConfig가 슬라이스에 같이 끌려와서 필요.
 class GenshinDailyNoteControllerTest {
 
     @Autowired

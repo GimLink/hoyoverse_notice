@@ -13,3 +13,9 @@ hoyolab:
 genshin:
   uid: ${GENSHIN_UID:}
   server: ${GENSHIN_SERVER:os_asia}
+
+# 프론트엔드(React)에서 fetch 가능하게 허용할 origin 목록.
+# 배포 시 GitHub Pages URL 추가 — 예: https://link.github.io
+cors:
+  allowed-origins:
+    - http://localhost:5173    # Vite 기본 포트
