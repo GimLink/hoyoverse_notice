@@ -32,6 +32,11 @@ function App() {
   return (
     <main className="min-h-screen bg-slate-950 text-slate-200 p-6">
       <div className="mx-auto max-w-4xl">
+        <div
+          className="w-full h-48 mb-6 rounded-lg bg-contain bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/banners/overview.svg')" }}
+          aria-hidden="true"
+        />
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-2xl font-semibold text-slate-100">Genshin Daily Note</h1>
           <button
@@ -45,40 +50,26 @@ function App() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <StatCard title="Resin" current={data.current_resin} max={data.max_resin}>
+          <StatCard
+            title="Resin"
+            current={data.current_resin}
+            max={data.max_resin}
+            icon="/icons/resin.webp"
+            accent="sky"
+          >
             Recovery: {formatRemainingTime(data.resin_recovery_time)}
           </StatCard>
 
-          <StatCard title="Daily Tasks" current={data.finished_task_num} max={data.total_task_num}>
+          <StatCard
+            title="Daily Tasks"
+            current={data.finished_task_num}
+            max={data.total_task_num}
+            icon="/icons/daily-task.webp"
+            accent="amber"
+          >
             Bonus: {data.is_extra_task_reward_received ? 'Claimed' : 'Not claimed'}
           </StatCard>
 
-          <StatCard
-            title="Expeditions"
-            current={data.current_expedition_num}
-            max={data.max_expedition_num}
-          >
-            <ul className="space-y-1">
-              {data.expeditions.map((e, i) => (
-                <li key={i} className="flex justify-between">
-                  <span
-                    className={e.status === 'Finished' ? 'text-emerald-400' : 'text-slate-400'}
-                  >
-                    {e.status}
-                  </span>
-                  <span className="text-slate-500">{formatRemainingTime(e.remained_time)}</span>
-                </li>
-              ))}
-            </ul>
-          </StatCard>
-
-          <StatCard
-            title="Realm Currency"
-            current={data.current_home_coin}
-            max={data.max_home_coin}
-          >
-            Recovery: {formatRemainingTime(data.home_coin_recovery_time)}
-          </StatCard>
         </div>
       </div>
     </main>
